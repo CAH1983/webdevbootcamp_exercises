@@ -1,7 +1,11 @@
 <h1> The posts page </h1>
 
-<% for(let i=0; i<posts.length; i++) { %>
-    <li> 
-        <%= posts[i].title%> - <strong><%= posts[i].author %> </strong>
-    </li>
-<% } %>
+<h2> Let's drink a beer with Krusty </h2>
+
+<img src="https://i.gifer.com/3rCy.gif">
+    
+    <% posts.forEach(function(post) { %>
+        <li>
+            <%= posts.title %> - <strong> <%= posts.author %> </strong>
+        </li>
+    <% }) %>
