@@ -43,8 +43,8 @@ convertBtn.addEventListener('click', function() {
     XHR.onreadystatechange = function() {
         if(XHR.readyState == 4 && XHR.status == 200) {
             console.log(XHR.responseText);
-            var currentPrice = JSON.parse(XHR.responseText).rate;
-            convertedAmount.innerHTML = currentPrice;
+            var currentPrice = JSON.parse(XHR.responseText).bpi.GBP.rate;
+            convertedAmount.innerHTML = '£' + currentPrice;
         }
     }
 
