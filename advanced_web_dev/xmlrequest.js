@@ -35,27 +35,44 @@ btn.addEventListener('click', function() {
 
 // bitcoin converter API exercise
 
-var convertBtn = document.querySelector('#convert-btn');
-var convertedAmount = document.querySelector('#amount-span');
+const convertBtn = document.querySelector('#convert-btn');
+// const convertedAmount = document.querySelector('#amount-span');
 
-convertBtn.addEventListener('click', function() {
+// convertBtn.addEventListener('click', function() {
 
-    XHR.onreadystatechange = function() {
-        if(XHR.readyState == 4 && XHR.status == 200) {
-            console.log(XHR.responseText);
-            var currentPrice = JSON.parse(XHR.responseText).bpi.GBP.rate;
-            convertedAmount.innerHTML = '£' + currentPrice;
+//     XHR.onreadystatechange = function() {
+//         if(XHR.readyState == 4 && XHR.status == 200) {
+//             console.log(XHR.responseText);
+//             let currentPrice = JSON.parse(XHR.responseText).bpi.GBP.rate;
+//             convertedAmount.innerHTML = '£' + currentPrice;
+//         }
+//     }
+
+//     XHR.open('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
+//     XHR.send();
+// })
+
+// instructor's solution
+
+var btn = document.querySelector('#convert-btn');
+var priceDisp = document.querySelector('#amount-span');
+
+var currency = 'USD';
+
+btn.addEventListener('click', function () {
+    var XHR = new XMLHttpRequest();
+
+    XHR.onreadystatechange = function () {
+        if (XHR.readyState == 4 && XHR.status == 200) {
+            var data = JSON.parse(XHR.responseText);
+            var price = data.bpi[currency].rate;
+            priceDisp.innerText = price + ' ' + currency;
         }
     }
 
     XHR.open('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
     XHR.send();
 })
-
-
-
-
-
 
 
 
