@@ -15,10 +15,13 @@ button.addEventListener('click', function() {
             return res.json();
         })
         .then(function(data) {
-            console.log(data);
+            let fullName = data.results[0].name.first;
+            fullNameSpan.innerText = fullName;
         })
         .then(updateProfile)
-        .catch(printError)
+        .catch(function (err) {
+            console.log(err);
+        })
 });
 
 function handleErrors(request) {
@@ -34,11 +37,10 @@ function handleErrors(request) {
 //     return res.json();
 // }
 
-function updateProfile(data) {
-    let fullName = data.results.name.first + ' ' + data.results.name.last;
-    fullNameSpan.innerText = fullName;
-}
+// function updateProfile(data) {
+//     
+// }
 
-function printError(error) {
-    console.log('there is a problem');
-}
+// function printError(error) {
+//     console.log('there is a problem');
+// }
