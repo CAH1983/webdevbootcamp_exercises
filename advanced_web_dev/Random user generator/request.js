@@ -10,13 +10,11 @@ button.addEventListener('click', function() {
     console.log('clicked');
     fetch(URL)
         .then(handleErrors)
-        .then(function(res){
-            console.log(res);
-            return res.json();
-        })
+        .then(parseJSON)
         .then(function(data) {
-            let fullName = data.results[0].name.first;
+            let fullName = data.name.first;
             fullNameSpan.innerText = fullName;
+            avatar.src = data.picture.medium;
         })
         .then(updateProfile)
         .catch(function (err) {
@@ -32,10 +30,14 @@ function handleErrors(request) {
         return request;
 }
 
-// function parseJSON(res) {
-//     console.log(res);
-//     return res.json();
-// }
+function parseJSON(res) {
+    console.log(res);
+    return res.json()
+    .then(function(data) {
+        return data.results[0];
+    })
+}
+
 
 // function updateProfile(data) {
 //     
