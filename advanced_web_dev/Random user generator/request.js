@@ -10,7 +10,13 @@ button.addEventListener('click', function() {
     console.log('clicked');
     fetch(URL)
         .then(handleErrors)
-        .then(parseJSON)
+        .then(function(res){
+            console.log(res);
+            return res.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
         .then(updateProfile)
         .catch(printError)
 });
@@ -23,10 +29,10 @@ function handleErrors(request) {
         return request;
 }
 
-function parseJSON(response) {
-    console.log(response);
-    return response.json();
-}
+// function parseJSON(res) {
+//     console.log(res);
+//     return res.json();
+// }
 
 function updateProfile(data) {
     let fullName = data.results.name.first + ' ' + data.results.name.last;
