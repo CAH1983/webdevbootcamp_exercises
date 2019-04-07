@@ -6,17 +6,8 @@ const userNameSpan = document.querySelector('#username');
 const emailSpan = document.querySelector('#email');
 const citySpan = document.querySelector('#city');
 
-button.addEventListener('click', function() {
-    console.log('clicked');
-    fetch(URL)
-        .then(handleErrors)
-        .then(parseJSON)
-        .then(updateProfile)
-        .catch(function (err) {
-            console.log(err);
-        })
-    });
-    
+
+// handle errors
 function handleErrors(request) {
     if(!request.ok) {
         console.log(request.status);
@@ -25,6 +16,7 @@ function handleErrors(request) {
     return request;
 }
 
+// get the data
 function parseJSON(res) {
     console.log(res);
     return res.json()
@@ -33,6 +25,7 @@ function parseJSON(res) {
     })
 }
 
+// update the divs form the profile
 function updateProfile(data) {
         let fullName = data.name.first + ' ' + data.name.last;
         fullNameSpan.innerText = fullName;
@@ -41,8 +34,19 @@ function updateProfile(data) {
         emailSpan.innerText = data.email;
         citySpan.innerText = data.location.city;
     }
+    
+    
+// display errors
+function printError(err) {
+        console.log(err);
+    }
 
-
-// function printError(error) {
-//     console.log('there is a problem');
-// }
+// --------ADD EVENT LISTENER --------
+button.addEventListener('click', function() {
+    console.log('clicked');
+    fetch(URL)
+        .then(handleErrors)
+        .then(parseJSON)
+        .then(updateProfile)
+        .catch(printError)
+    });
