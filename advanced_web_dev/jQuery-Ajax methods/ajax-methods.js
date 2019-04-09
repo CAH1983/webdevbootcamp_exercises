@@ -1,5 +1,6 @@
 console.log('connected');
 
+//ajax method
 $('#btn').click(function() {
     $.ajax({
         method: 'GET',
@@ -17,3 +18,34 @@ function addParagraph(data) {
     console.log(data);
     $('p').text(data[0]);
 }
+
+//jQuery get, post, get JSOn methods
+$('#getBtn').click(function() {
+    $.get('https://pokeapi.co/api/v2/')
+    .done(function(data) {
+        console.log(data);
+    })
+    .fail(function() {
+        console.log('error');
+    })
+})
+
+$('#postBtn').click(function() {
+    let data = {
+        name: 'Charlie',
+        city: 'Florence'
+    }
+    
+    $.post('www.catsarecoolandsoaredogs.com')
+    .done(function(data) {
+        console.log('Hi');
+    })
+    .fail(function() {
+        console.log('error!');
+    })
+});
+
+$('#getJSONBtn').click(function() {
+
+})
+
