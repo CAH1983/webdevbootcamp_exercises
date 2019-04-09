@@ -22,12 +22,12 @@ function addParagraph(data) {
 //jQuery get, post, get JSOn methods
 $('#getBtn').click(function() {
     $.get('https://pokeapi.co/api/v2/')
-    .done(function(data) {
-        console.log(data);
-    })
-    .fail(function() {
-        console.log('error');
-    })
+        .done(function(data) {
+            console.log(data);
+        })
+        .fail(function() {
+            console.log('error');
+        })
 })
 
 $('#postBtn').click(function() {
@@ -37,15 +37,22 @@ $('#postBtn').click(function() {
     }
     
     $.post('www.catsarecoolandsoaredogs.com')
-    .done(function(data) {
-        console.log('Hi');
-    })
-    .fail(function() {
-        console.log('error!');
-    })
+        .done(function(data) {
+            console.log('Hi');
+        })
+        .fail(function() {
+            console.log('error!');
+        })
 });
 
-$('#getJSONBtn').click(function() {
 
-})
+$("#getJSONBtn").click(function () {
+    $.getJSON("https://api.github.com/users/colt")
+        .done(function (data) {
+            console.log(data);
+        })
+        .fail(function () {
+            console.log("PROBLEM!");
+        })
+});
 

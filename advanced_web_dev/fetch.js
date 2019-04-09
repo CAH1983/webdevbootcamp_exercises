@@ -24,8 +24,7 @@ fetch(url)
 const errorBtn = document.querySelector('#error-btn');
 
 errorBtn.addEventListener('click', function() {
-  
-    let secondUrl = 'https://api.github.com/users/coltdd';
+    let secondUrl = 'https://api.github.com/users/colt';
 
     fetch(secondUrl)
     .then(handleErrors)
@@ -35,12 +34,10 @@ errorBtn.addEventListener('click', function() {
     })
     .catch(function(error) {
         console.log('there is a problem!');
-    });
-        
+    });  
 });
 
 function handleErrors(request) {
-
     if(!request.ok) {
         throw Error(request.status);
     }
