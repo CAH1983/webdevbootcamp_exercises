@@ -36,6 +36,18 @@ body {
 .box {
     background: #CC0042;
     flex: 1 1 200px;
+    color: white;
+    font-family: helvetica;
+    padding: 20px;
+    transition: 0.1s background;
+}
+
+.box:hover {
+    background: #FF0052;
+}
+
+h3 {
+    font-size: 30px;
 }
 
 .middle {
