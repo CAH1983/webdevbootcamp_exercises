@@ -20,7 +20,6 @@ header {
 main {
     display: flex;
     flex-basis: 800px;
-
 }
 
 article {
