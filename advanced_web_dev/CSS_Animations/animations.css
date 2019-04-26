@@ -15,5 +15,28 @@ input:focus {
 .btn2 {
     outline: none;
     border: none;
-    cursor: pointer
+    cursor: pointer;
+    display: block;
+    position: relative;
+    background-color: rgb(248, 204, 82);
+    font-size: 16px;
+    font-weight: 300px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 25px 80px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 5px 10px #efa424;
+}
+
+.btn2:hover {
+    box-shadow: 0 4px #efa424;
+    top: 2px;
+}
+
+.btn2:active {
+    box-shadow: none;
+    top: 6px;
+    right: 6px;
 }
