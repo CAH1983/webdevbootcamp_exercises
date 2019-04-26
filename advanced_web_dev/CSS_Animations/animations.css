@@ -1,0 +1,19 @@
+input:focus {
+    background-color: rgb(154, 154, 216);
+}
+
+#btn1:focus {
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+#btn1:active {
+    background-color: orange;
+    font-size: 30px;
+}
+
+.btn2 {
+    outline: none;
+    border: none;
+    cursor: pointer
+}
