@@ -48,8 +48,10 @@ p {
     width: 50px;
     height: 50px;
     background-color: #1abc9c;
+    margin: 50px auto;
 }
 
+/* translate is to move an element  */
 p.move-right {
     background-color: #3498db;
     transform: translateX(100px);
@@ -60,6 +62,21 @@ p.move-down {
     transform: translateY(20px);
 }
 
+/* scale is to change the size of an element */
 p:hover {
-    transform: translate(20px, 20px);
+    transform: rotate(45deg);
+}
+
+/* transform-origin set the original coordinate points so the scale starts from the position set up */
+.transformed:hover {
+    background-color: #3498db;
+    transform: scale(2);
+    transform-origin: left top;
+}
+
+
+p.rotate:hover {
+    background-color: rgb(236, 91, 188);
+    transform: rotate(-45deg) scale(2);
+    transform-origin: right bottom;
 }
